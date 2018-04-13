@@ -1,4 +1,4 @@
-## React-MinerSweaper 踩地雷
+## React-MineSweeper 踩地雷
 
 ```
 $ npm install
