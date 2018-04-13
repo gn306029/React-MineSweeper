@@ -14,13 +14,17 @@ export default class Timer extends React.Component{
 	}
 
 	componentWillReceiveProps(nextProps){
-		if(nextProps.stop === 1 || nextProps.stop === 2){
+		if(nextProps.stop === 1 || nextProps.stop === 2 || (nextProps.stop !== this.props.stop && nextProps.stop)){
 			clearInterval(this.Time);
+		}else if((nextProps.stop !== this.props.stop && !nextProps.stop)){
+			this.Time = this.setTime();
 		}
-		if(nextProps.restart != this.props.restart && !nextProps.restart){
+		console.log(nextProps.stop)
+		if((nextProps.restart !== this.props.restart && !nextProps.restart) || (this.props.surrender !== nextProps.surrender)){
 			this.setState({
 				time : 0
 			});
+			clearInterval(this.Time);
 			this.Time = this.setTime();
 		}
 	}

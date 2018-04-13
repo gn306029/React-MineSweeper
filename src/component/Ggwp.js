@@ -12,6 +12,8 @@ export default class GGWP extends React.Component{
 			this.gg = 1;
 		}else if(nextProps.start === 2){
 			this.gg = 2;
+		}else if(nextProps.start === 3){
+			this.gg = 3;
 		}
 	}
 
@@ -27,6 +29,7 @@ export default class GGWP extends React.Component{
 					<p className="GGWP">!!!! GGWP !!!!</p>
 					<button 
 					onClick={this.restart.bind(this)}
+					className="btn btn-info"
 					>
 						Restart
 					</button>
@@ -38,6 +41,7 @@ export default class GGWP extends React.Component{
 					<p className="GGWP">!!!! You Win !!!!</p>
 					<button 
 					onClick={this.restart.bind(this)}
+					className="btn btn-info"
 					>
 						Restart
 					</button>
