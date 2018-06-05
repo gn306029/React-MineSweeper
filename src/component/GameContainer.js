@@ -93,6 +93,7 @@ export default class GameContainer extends React.Component{
 		let table = this.createBombArea(this.props);
 		this.setState({
 			rows : table,
+			stop : false,
 			gg : 3
 		});
 		this.init("surrender");
@@ -100,7 +101,8 @@ export default class GameContainer extends React.Component{
 
 	gamestop(){
 		this.setState({
-			stop:(!this.state.stop)?true:false
+			stop:(!this.state.stop)?true:false,
+			gg:4
 		});
 	}
 
@@ -241,7 +243,8 @@ export default class GameContainer extends React.Component{
 					<div className="row">
 						<div className="col-sm-4 col-sm-offset-4">
 							<Timer 
-								stop={(this.state.gg === 1 || this.state.gg === 2)?this.state.gg:this.state.stop}
+								stop={(this.state.stop)?false:true}
+								type={this.state.gg}
 								restart={this.re}
 								surrender={this.restart_click}
 							/>
